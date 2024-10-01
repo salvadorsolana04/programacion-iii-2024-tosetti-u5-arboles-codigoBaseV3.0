@@ -197,7 +197,12 @@ NodoArbol<T> *ArbolBinario<T>::remove(T data, NodoArbol<T> *r)
 template <class T>
 NodoArbol<T> *ArbolBinario<T>::findMaxAndRemove(NodoArbol<T> *r, bool *found)
 {
-  NodoArbol<T> ret;
+  if (r == nullptr) {
+    *found = false;
+    return nullptr;
+  }
+
+  NodoArbol<T> *ret = nullptr;
   *found = false;
 
   if (r->getRight() == nullptr)
